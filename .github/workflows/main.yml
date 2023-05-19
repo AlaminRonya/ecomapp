@@ -17,10 +17,10 @@ jobs:
           distribution: 'oracle'
           java-version: 17
       - name: Generate Swagger openAPI
-        uses: openapi-generators/openapitools-generator-action@v1
+        uses: openapi-generators/openapitools-generator-action@v3
         with:
           generator: spring
-#          inputSpec: ./path/to/your/openapi-spec.yaml
+          inputSpec: https://github.com/AlaminRonya/ecomapp/blob/f37459d3689f8b8a27ccce5bb8631e10fd896129/pom.xml
 #          outputDir: ./path/to/output/directory
 
       - name: Unit Tests
