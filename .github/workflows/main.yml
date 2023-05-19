@@ -22,3 +22,12 @@ jobs:
         run: |
             mvn clean
             mvn -B package --file pom.xml
+        springfox:
+        documentation:
+          swagger-ui:
+            enabled: true
+            path: /swagger-ui.html
+          springfox:
+            swagger-ui:
+              enabled: true
+              path: /api-docs
