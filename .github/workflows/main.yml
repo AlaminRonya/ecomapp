@@ -16,7 +16,8 @@ jobs:
         with:
           distribution: 'oracle'
           java-version: 17
-
+      - name: Generate Swagger Documentation
+        run: mvn springdoc:generate
 
       - name: Unit Tests
         run: mvn -B test --file pom.xml
@@ -25,5 +26,4 @@ jobs:
             mvn clean
             mvn -B package --file pom.xml
 
-      - name: Generate Swagger Documentation
-        run: mvn springdoc:generate
+      
