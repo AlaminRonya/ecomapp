@@ -1,4 +1,4 @@
-package com.attrabit.ecomapp.consumer;
+package com.attrabit.ecomapp.rabbitmq.consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

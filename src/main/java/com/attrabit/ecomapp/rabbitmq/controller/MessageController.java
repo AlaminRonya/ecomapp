@@ -1,6 +1,6 @@
-package com.attrabit.ecomapp.controller;
+package com.attrabit.ecomapp.rabbitmq.controller;
 
-import com.attrabit.ecomapp.publisher.RabbitMQProducer;
+import com.attrabit.ecomapp.rabbitmq.publisher.RabbitMQProducer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

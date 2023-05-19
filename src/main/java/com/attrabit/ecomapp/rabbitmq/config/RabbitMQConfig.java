@@ -1,4 +1,4 @@
-package com.attrabit.ecomapp.config;
+package com.attrabit.ecomapp.rabbitmq.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
