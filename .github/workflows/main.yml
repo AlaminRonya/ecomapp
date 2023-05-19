@@ -17,19 +17,15 @@ jobs:
           distribution: 'oracle'
           java-version: 17
       - name: Generate Swagger openAPI
-        uses: openapi-generators/openapitools-generator-action@v1
+        uses: openapi-generators/openapitools-generator-action@v3
+        with:
+          generator: spring
+#          inputSpec: ./path/to/your/openapi-spec.yaml
+#          outputDir: ./path/to/output/directory
+
       - name: Unit Tests
         run: mvn -B test --file pom.xml
       - name: Build the application
         run: |
             mvn clean
             mvn -B package --file pom.xml
-#  springfox:
-#        documentation:
-#          swagger-ui:
-#            enabled: true
-#            path: /swagger-ui.html
-#          springfox:
-#            swagger-ui:
-#              enabled: true
-#              path: /api-docs
