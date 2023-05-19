@@ -18,9 +18,12 @@ jobs:
           java-version: 17
       - name: Build with Maven
         run: mvn clean package
+      - name: Generate Client Library w/ the OpenAPITools Generator
+        uses: openapi-generators/openapitools-generator-action@v1.4.0
 
-      - name: Generate Swagger OpenAPI
-        run: mvn springdoc:generate
+
+      #      - name: Generate Swagger OpenAPI
+#        run: mvn springdoc:generate
 
 
       - name: Unit Tests
