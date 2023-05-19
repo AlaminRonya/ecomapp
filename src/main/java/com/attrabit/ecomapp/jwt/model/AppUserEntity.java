@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -81,5 +82,7 @@ public class AppUserEntity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
 
 }
