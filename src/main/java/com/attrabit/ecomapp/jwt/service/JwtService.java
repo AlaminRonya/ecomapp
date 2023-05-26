@@ -1,6 +1,7 @@
 package com.attrabit.ecomapp.jwt.service;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -30,13 +31,18 @@ public class JwtService {
     }
     public String generateToken(Map<String, Object> extraClaims,
                                 UserDetails userDetails){
-        return Jwts.builder()
-                .setClaims(extraClaims)
-                .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 100*60*24))
-                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
-                .compact();
+        try {
+            return Jwts.builder()
+                    .setClaims(extraClaims)
+                    .setSubject(userDetails.getUsername())
+                    .setIssuedAt(new Date(System.currentTimeMillis()))
+                    .setExpiration(new Date(System.currentTimeMillis() + 100*60*24))
+                    .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                    .compact();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
     public boolean isTokenValid(String token, UserDetails userDetails){
         final String username = extractUsername(token);
@@ -52,11 +58,17 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token){
-        return Jwts.parserBuilder()
-                .setSigningKey(getSignInKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
+        try {
+            return Jwts.parserBuilder()
+                    .setSigningKey(getSignInKey())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
     }
 
     private Key getSignInKey() {

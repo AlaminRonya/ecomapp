@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/admin")
 @PreAuthorize("hasRole('ADMIN')")
-@SecurityRequirement(name = "bearerAuth")
+//@SecurityRequirement(name = "bearerAuth")
 public class AdminController {
     @GetMapping
     @PreAuthorize("hasAnyAuthority('','admin:read')")
